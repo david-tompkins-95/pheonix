@@ -8,6 +8,21 @@ export default function Dashboard() {
                     <form action="#">
                         <div className="grid gap-5 mb-4 sm:grid-cols-4 sm:gap-6 sm:mb-5">
                             <div className="w-full">
+                            </div>
+                            <div className="w-full">
+                            </div>
+                            <div className="w-full">
+                            </div>
+                            <div className="w-full">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div className="max-w-2xl px-2 py-4 mx-auto lg:py-16">
+                    <form action="#">
+                        <div className="grid gap-5 mb-4 sm:grid-cols-4 sm:gap-6 sm:mb-5">
+                            <div className="w-full">
                                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Indicator</label>
                                 <select placeholder="" id="indicator" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                                     <option value="Buy">Buy Indicator</option>
