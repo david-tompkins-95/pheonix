@@ -1,0 +1,62 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .footer {
+        @apply mt-auto bg-white shadow dark:bg-gray-900;
+    }
+}
+
+@layer components {
+    .container {
+        @apply h-auto max-w-screen-xl mx-auto p-4 md:py-8;
+    }
+}
+
+@layer components {
+    .content {
+        @apply sm:flex sm:items-center sm:justify-between;
+    }
+}
+
+@layer components {
+    .logo {
+        @apply flex items-center mb-4 sm:mb-0;
+    }
+}
+
+@layer components {
+    .footer_logo {
+        @apply h-8 mr-3;
+    }
+}
+
+@layer components {
+    .logo_name {
+        @apply self-center text-2xl font-semibold whitespace-nowrap dark:text-white
+    }
+}
+
+@layer components {
+    .nav {
+        @apply flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400
+    }
+}
+
+@layer components {
+    .list_name {
+        @apply mr-4 hover:underline md:mr-6
+    }
+}
+
+@layer components {
+    .hr {
+        @apply my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8
+    }
+}
+
+@layer components {
+    .info {
+        @apply block text-sm text-gray-500 sm:text-center dark:text-gray-400
+    }
+}

@@ -1,0 +1,49 @@
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+    .dashboard {
+        @apply flex-col items-center;
+    }
+
+    .container {
+        @apply flex-auto w-auto px-2 py-2 mx-auto lg:py-14
+    }
+
+    .title {
+        @apply text-center text-lg px-6 py-10;
+    }
+
+    .form__container {
+        @apply grid gap-3 mb-2 sm:grid-cols-5 sm:gap-3 sm:mb-7
+    }
+
+    .field__container {
+        @apply w-full
+    }
+
+    .field_labels {
+        @apply block mb-2 text-sm font-medium text-gray-900 dark:text-white
+    }
+
+    .field_indicator {
+        @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+    }
+
+    .field__signal {
+        @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500
+    }
+
+    .field__stockName {
+        @apply shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+    }
+
+    .field__timePeriod {
+        @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+    }
+
+    .button__submit {
+        @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-6 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
+    }
+}
