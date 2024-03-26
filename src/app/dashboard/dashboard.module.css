@@ -8,7 +8,7 @@
     }
 
     .container {
-        @apply flex-auto w-auto px-2 py-2 mx-auto lg:py-14
+        @apply flex-auto w-auto px-2 py-2 mx-auto lg:py-6
     }
 
     .title {
