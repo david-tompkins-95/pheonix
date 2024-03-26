@@ -5,6 +5,53 @@ import AutoTradeForm from "@/app/dashboard/components/forms/auto_trade_form.modu
 const IndicatorChartForm = () => {
     const [ticker, setTicker] = useState('');
     const [imageSrc, setImageSrc] = useState('');
+    const [sellSignals, setSellSignals] = useState('');
+    const [buySignals, setBuySignals] = useState('');
+
+    const getSignals = async () => {
+        await fetch(`/api/signals?` + new URLSearchParams({
+            ticker: ticker
+        })).then(response => response.json())
+            .then(data => {
+                // Access the data here
+                const buyCount = data[0];
+                const sellCount = data[1];
+                if (sellCount > sellSignals) {
+                    setSellSignals(sellCount)
+                    showNotification("Sell Signal Received", `Sell signals: ${sellCount}`)
+                }
+                if (buyCount > buySignals) {
+                    setBuySignals(buyCount)
+                    showNotification("Buy Signal Received", `Buy signals: ${buyCount}`);
+                }
+                else{
+                    console.log("No Signal Change")
+                }
+                // Do something with the data, like updating the UI
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            }); // Specify the backend URL
+    }
+
+    // Function to display notification
+    function showNotification(title: string, message: string) {
+        // Check if the browser supports notifications
+        if (!("Notification" in window)) {
+            console.error("This browser does not support desktop notification");
+        } else if (Notification.permission === "granted") {
+            // If permission is already granted, show the notification
+            new Notification(title, {body: message});
+        } else if (Notification.permission !== "denied") {
+            // Otherwise, ask for permission
+            Notification.requestPermission().then(function (permission) {
+                if (permission === "granted") {
+                    // If permission is granted, show the notification
+                    new Notification(title, {body: message});
+                }
+            });
+        }
+    }
 
     const handleSubmit = async (event: { preventDefault: any; }) => {
         event.preventDefault();
@@ -19,6 +66,7 @@ const IndicatorChartForm = () => {
             console.error("Failed to fetch chart data:", response.status);
             // Handle error condition
         }
+        await getSignals()
     };
 
     useEffect(() => {
