@@ -5,8 +5,8 @@ import AutoTradeForm from "@/app/dashboard/components/forms/auto_trade_form.modu
 const IndicatorChartForm = () => {
     const [ticker, setTicker] = useState('');
     const [imageSrc, setImageSrc] = useState('');
-    const [sellSignals, setSellSignals] = useState('');
-    const [buySignals, setBuySignals] = useState('');
+    const [sellSignals, setSellSignals] = useState(0);
+    const [buySignals, setBuySignals] = useState(0);
 
     const getSignals = async () => {
         await fetch(`/api/signals?` + new URLSearchParams({
@@ -14,8 +14,10 @@ const IndicatorChartForm = () => {
         })).then(response => response.json())
             .then(data => {
                 // Access the data here
-                const buyCount = data[0];
-                const sellCount = data[1];
+                console.log(buySignals);
+                console.log(sellSignals);
+                const buyCount = data["buy_count"];
+                const sellCount = data["sell_count"];
                 if (sellCount > sellSignals) {
                     setSellSignals(sellCount)
                     showNotification("Sell Signal Received", `Sell signals: ${sellCount}`)
@@ -62,11 +64,11 @@ const IndicatorChartForm = () => {
             const imageBlob = await response.blob();
             const imageUrl = URL.createObjectURL(imageBlob);
             setImageSrc(imageUrl);
+            getSignals().then(r => {})
         } else {
             console.error("Failed to fetch chart data:", response.status);
             // Handle error condition
         }
-        await getSignals()
     };
 
     useEffect(() => {
@@ -77,7 +79,7 @@ const IndicatorChartForm = () => {
                     preventDefault: () => {}
                 }).then(r =>{}); // Call the submit handler
             }
-        }, 30000); // Refresh every 30 seconds
+        }, 15000); // Refresh every 5 seconds
 
         return () => clearInterval(interval); // Clean up interval on component unmount
     }, [ticker]);
