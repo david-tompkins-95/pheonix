@@ -7,6 +7,7 @@ const AutoTradeForm = ((props: any) => {
     const [orderType, setOrderType] = useState('');
     const [strikePrice, setStrikePrice] = useState('');
     const [orderQuantity, setOrderQuantity] = useState('');
+    const [contractDate, setContractDate] = useState('');
     const handleSubmit = async (event: { preventDefault: any; }) => {
         event.preventDefault();
         // Fetch data from the API using ticker
@@ -15,7 +16,8 @@ const AutoTradeForm = ((props: any) => {
             action: action,
             orderType: orderType,
             strikePrice: strikePrice,
-            orderQuantity: orderQuantity})); // Specify the backend URL
+            orderQuantity: orderQuantity,
+            contractDate: contractDate})); // Specify the backend URL
         if (response.ok) {
             console.log(response);
         } else {
@@ -56,6 +58,13 @@ const AutoTradeForm = ((props: any) => {
                                onChange={(e) => setStrikePrice(e.target.value)}
                                className={styles.field__stockName}
                                placeholder="$" required/>
+                    </div>
+                    <div className="w-full">
+                        <label className={styles.field_labels}>Contract Length</label>
+                        <input type="text" id="contract_date"
+                               onChange={(e) => setContractDate(e.target.value)}
+                               className={styles.field__stockName}
+                               placeholder="Contract Length" required/>
                     </div>
                     <div className="w-full">
                         <label className={styles.field_labels}>Ticker</label>
