@@ -36,6 +36,7 @@ const AutoTradeForm = ((props: any) => {
                         <select aria-placeholder={""} id="action"
                                 className={styles.field__stockName}
                                 onChange={(e) => setAction(e.target.value)}>
+                            <option value="null">Choose Action</option>
                             <option value="BUY">Buy</option>
                             <option value="SELL">Sell</option>
 
@@ -47,6 +48,7 @@ const AutoTradeForm = ((props: any) => {
                         <select aria-placeholder={""} id="order_type"
                                 onChange={(e) => setOrderType(e.target.value)}
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                            <option value="null">Choose Order Type</option>
                             <option value="C">Call</option>
                             <option value="P">Put</option>
                         </select>
