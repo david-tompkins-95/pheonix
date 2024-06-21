@@ -1,5 +1,6 @@
 import styles from "@/app/dashboard/dashboard.module.css";
-import React, {useState, useEffect, FormEvent} from 'react';
+import React, {useState, useEffect, FormEvent, useRef} from 'react';
+import axios, { CancelTokenSource } from 'axios';
 import AutoTradeForm from "@/app/dashboard/components/forms/auto_trade_form.module";
 
 const IndicatorChartForm = () => {
@@ -7,6 +8,8 @@ const IndicatorChartForm = () => {
     const [imageSrc, setImageSrc] = useState('');
     const [sellSignals, setSellSignals] = useState(0);
     const [buySignals, setBuySignals] = useState(0);
+    const [loading, setLoading] = useState(false);
+    const cancelTokenSource = useRef<CancelTokenSource | null>(null);
 
     const getSignals = async () => {
         await fetch(`/api/signals?` + new URLSearchParams({
@@ -57,17 +60,37 @@ const IndicatorChartForm = () => {
 
     const handleSubmit = async (event: { preventDefault: any; }) => {
         event.preventDefault();
-        // Fetch data from the API using ticker
-        const response = await fetch(`/api/chart?` + new URLSearchParams({
-            ticker: ticker})); // Specify the backend URL
-        if (response.ok) {
-            const imageBlob = await response.blob();
-            const imageUrl = URL.createObjectURL(imageBlob);
-            setImageSrc(imageUrl);
-            getSignals().then(r => {})
-        } else {
-            console.error("Failed to fetch chart data:", response.status);
-            // Handle error condition
+        if (loading) {
+            // Cancel previous request if still ongoing
+            if (cancelTokenSource.current) {
+                cancelTokenSource.current.cancel("Operation canceled due to new request.");
+            }
+        }
+
+        setLoading(true);
+        cancelTokenSource.current = axios.CancelToken.source();
+        try {
+            const response = await axios.get('/api/chart', {
+                params: { ticker },
+                responseType: 'blob',
+                cancelToken: cancelTokenSource.current.token
+            });
+            if (response.status === 200) {
+                const imageBlob = new Blob([response.data], { type: 'image/png' });
+                const imageUrl = URL.createObjectURL(imageBlob);
+                setImageSrc(imageUrl);
+                getSignals().then(r => {});
+            } else {
+                console.error("Failed to fetch chart data:", response.status);
+            }
+        } catch (error) {
+            if (axios.isCancel(error)) {
+                console.log("Request canceled:", error.message);
+            } else {
+                console.error("Failed to fetch chart data:", error);
+            }
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -79,9 +102,14 @@ const IndicatorChartForm = () => {
                     preventDefault: () => {}
                 }).then(r =>{}); // Call the submit handler
             }
-        }, 15000); // Refresh every 5 seconds
+        }, 30000); // Refresh every 30 seconds
 
-        return () => clearInterval(interval); // Clean up interval on component unmount
+        return () => {
+            clearInterval(interval);
+            if (cancelTokenSource.current) {
+                cancelTokenSource.current.cancel("Component unmounted, canceling request.");
+            }
+        };
     }, [ticker]);
 
     return (
