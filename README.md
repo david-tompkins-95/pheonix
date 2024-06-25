@@ -5,6 +5,8 @@ First, pull new code in your terminal and run the development server:
 ```bash
 git pull 
 
+npm install
+
 npm run dev
 ```
 
