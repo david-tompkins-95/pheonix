@@ -21,8 +21,15 @@ const AutoTradeForm = ((props: any) => {
         if (response.ok) {
             console.log(response);
         } else {
-            console.error("Failed to fetch chart data:", response.status);
-            // Handle error condition
+            console.error("Failed to create order, please see the following message: ", response.body);
+            // TODO 001:
+            //  Whenever the order creation fails, we need to indicate which field to change,
+            //   so that the user is aware of what field needs to be changed in order make the
+            //   proper adjustments and resubmit the order.
+            // TODO 002:
+            //  Whenever the order creation fails, we need to wipe the indicated fields,
+            //   so that the user is unable to resubmit an already failed order,
+            //   to prevent confusion.
         }
     };
 
