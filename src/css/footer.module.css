@@ -1,6 +1,3 @@
-@tailwind components;
-@tailwind utilities;
-
 @layer components {
     .footer {
         @apply mt-auto bg-white shadow dark:bg-gray-900;

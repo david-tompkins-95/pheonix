@@ -1,9 +1,9 @@
 "use client"
 import Layout from "../components/layout";
 import React from "react";
-import styles from "./dashboard.module.css"
-import IndicatorChartForm from "@/app/dashboard/components/forms/indicator_chart_form.module";
-import AutoTradeForm from "@/app/dashboard/components/forms/auto_trade_form.module";
+import styles from './dashboard.module.css'
+import IndicatorChartForm from "@/dashboard/components/indicator_chart_form.module";
+import AutoTradeForm from "@/dashboard/components/auto_trade_form.module";
 
 export default function Dashboard() {
 
