@@ -28,7 +28,7 @@
     justify-content: center;
 }
 
-.autotradeLabelAction {
+.autotradeActionLabel {
     display: grid;
     box-sizing: content-box;
     justify-self: center;
@@ -47,4 +47,25 @@
 }
 #sellAction{
     background: rgb(128, 0, 0);
+}
+
+.autotradeTypeContainer {
+    grid-column-start: 2;
+    display: grid;
+    grid-template-rows: repeat(2);
+    justify-content: center;
+}
+
+.autotradeTypeLabel {
+    display: grid;
+    box-sizing: content-box;
+    justify-self: center;
+    grid-row-start: 1;
+}
+
+.autotradeTypes {
+    grid-row-start: 2;
+    border-color: rgb(255, 255, 255);
+    border: 2px solid rgb(0, 255, 17);
+    background: #5d645c;
 }

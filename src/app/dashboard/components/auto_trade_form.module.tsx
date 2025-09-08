@@ -41,56 +41,56 @@ const AutoTradeForm = ((props: any) => {
                 <form onSubmit={handleSubmit} action="#">
                     <div className={styles.autotradeFieldContainer}>
                         <div className={styles.autotradeActionContainer}>
-                            <text className={styles.autotradeLabelAction}>Action Type</text>
+                            <text className={styles.autotradeActionLabel}>Action Type</text>
                             <select aria-placeholder={""} id="action"
                                 className={styles.autotradeActions}
                                 onChange={(e) => setAction(e.target.value)}
-                                aria-label="Action">                                <option value="null">Choose Action</option>
+                                aria-label="Action">
+                                <option value="null">Choose Action</option>
                                 <option id={styles.buyAction} value="BUY">Buy</option>
                                 <option id={styles.sellAction} value="SELL">Sell</option>
                             </select>
                         </div>
-                    </div>
-                    <div className="w-full">
-                        <label className={styles.field_labels}>Order
-                            Type</label>
-                        <select aria-placeholder={""} id="order_type"
-                            onChange={(e) => setOrderType(e.target.value)}
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                            <option value="null">Choose Order Type</option>
-                            <option value="C">Call</option>
-                            <option value="P">Put</option>
-                        </select>
-                    </div>
-                    <div className="w-full">
-                        <label className={styles.field_labels}>Strike
-                            Price</label>
-                        <input type="text" id="strike_price"
-                            onChange={(e) => setStrikePrice(e.target.value)}
-                            className={styles.field__stockName}
-                            placeholder="$" required />
-                    </div>
-                    <div className="w-full">
-                        <label className={styles.field_labels}>Contract Length</label>
-                        <input type="text" id="contract_date"
-                            onChange={(e) => setContractDate(e.target.value)}
-                            className={styles.field__stockName}
-                            placeholder="Contract Length" required />
-                    </div>
-                    <div className="w-full">
-                        <label className={styles.field_labels}>Ticker</label>
-                        <input type="text" id="ticker"
-                            onChange={(e) => setTicker(e.target.value)}
-                            className={styles.field__stockName}
-                            placeholder="Ticker Name" required />
-                    </div>
-                    <div className="w-full">
-                        <label className={styles.field_labels}>Order
-                            Quantity</label>
-                        <input type="text" id="order_quantity"
-                            onChange={(e) => setOrderQuantity(e.target.value)}
-                            className={styles.field__stockName}
-                            placeholder="Order Quantity" required />
+                        <div className={styles.autotradeTypeContainer}>
+                            <text className={styles.autotradeTypeLabel}>Order Type</text>
+                            <select aria-placeholder={""} id="order_type"
+                                className={styles.autotradeTypes}
+                                onChange={(e) => setOrderType(e.target.value)}>
+                                <option value="null">Choose Type</option>
+                                <option value="Call">Call</option>
+                                <option value="Put">Put</option>
+                            </select>
+                        </div>
+                        <div className="w-full">
+                            <label className={styles.field_labels}>Strike
+                                Price</label>
+                            <input type="text" id="strike_price"
+                                onChange={(e) => setStrikePrice(e.target.value)}
+                                className={styles.field__stockName}
+                                placeholder="$" required />
+                        </div>
+                        <div className="w-full">
+                            <label className={styles.field_labels}>Contract Length</label>
+                            <input type="text" id="contract_date"
+                                onChange={(e) => setContractDate(e.target.value)}
+                                className={styles.field__stockName}
+                                placeholder="Contract Length" required />
+                        </div>
+                        <div className="w-full">
+                            <label className={styles.field_labels}>Ticker</label>
+                            <input type="text" id="ticker"
+                                onChange={(e) => setTicker(e.target.value)}
+                                className={styles.field__stockName}
+                                placeholder="Ticker Name" required />
+                        </div>
+                        <div className="w-full">
+                            <label className={styles.field_labels}>Order
+                                Quantity</label>
+                            <input type="text" id="order_quantity"
+                                onChange={(e) => setOrderQuantity(e.target.value)}
+                                className={styles.field__stockName}
+                                placeholder="Order Quantity" required />
+                        </div>
                     </div>
                     <div className="w-full">
                         <label className={styles.field_labels}>- - - - - - -
