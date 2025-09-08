@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import styles from "@/app/dashboard/dashboard.module.css";
+import styles from "@/css/dashboard.module.css";
 
 const AutoTradeForm = ((props: any) => {
     const [ticker, setTicker] = useState('');

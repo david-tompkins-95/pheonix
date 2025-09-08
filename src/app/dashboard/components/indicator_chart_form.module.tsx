@@ -1,7 +1,7 @@
-import styles from "@/app/dashboard/dashboard.module.css";
+import styles from "@/css/dashboard.module.css";
 import React, {useState, useEffect, FormEvent, useRef} from 'react';
 import axios, { CancelTokenSource } from 'axios';
-import AutoTradeForm from "@/dashboard/components/auto_trade_form.module";
+import AutoTradeForm from "@/app/dashboard/components/auto_trade_form.module";
 
 const IndicatorChartForm = () => {
     const [ticker, setTicker] = useState('');
