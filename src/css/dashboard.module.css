@@ -6,7 +6,7 @@
 
 .dashboardMain {
     display: grid;
-    grid-template-columns: 3;
+    grid-template-columns: 6;
     object-position: center; 
     box-sizing: content-box;
     height: auto;

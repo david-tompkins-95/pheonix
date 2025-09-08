@@ -1,0 +1,37 @@
+.autotradeContainer {
+    grid-column: span 6;
+    justify-content: center;
+}
+
+.autotradeTitle {
+    font-size: x-large;
+    justify-self: center;
+}
+
+.autotradeFormContainer {
+    box-sizing: content-box;
+    justify-self: center;
+    height: fit-content;
+    width: fit-content;
+}
+
+.autotradeFieldContainer {
+    grid-column: span 6;
+    display: grid;
+    grid-template-columns: subgrid;
+}
+
+.autotradeActionContainer {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    display: grid;
+    grid-template-rows: 2;
+    justify-content: center;
+}
+
+.autotradeLabelAction {
+    display: grid;
+    box-sizing: content-box;
+    justify-self: center;
+    grid-template-rows: 2;
+}
