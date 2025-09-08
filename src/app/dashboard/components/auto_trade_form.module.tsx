@@ -41,14 +41,13 @@ const AutoTradeForm = ((props: any) => {
                 <form onSubmit={handleSubmit} action="#">
                     <div className={styles.autotradeFieldContainer}>
                         <div className={styles.autotradeActionContainer}>
-                            <label className={styles.autotradeLabelAction}>Action</label>
+                            <text className={styles.autotradeLabelAction}>Action Type</text>
                             <select aria-placeholder={""} id="action"
-                                className={styles.field__stockName}
-                                onChange={(e) => setAction(e.target.value)}>
-                                <option value="null">Choose Action</option>
-                                <option value="BUY">Buy</option>
-                                <option value="SELL">Sell</option>
-
+                                className={styles.autotradeActions}
+                                onChange={(e) => setAction(e.target.value)}
+                                aria-label="Action">                                <option value="null">Choose Action</option>
+                                <option id={styles.buyAction} value="BUY">Buy</option>
+                                <option id={styles.sellAction} value="SELL">Sell</option>
                             </select>
                         </div>
                     </div>

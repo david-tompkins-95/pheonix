@@ -23,9 +23,8 @@
 
 .autotradeActionContainer {
     grid-column-start: 1;
-    grid-column-end: 1;
     display: grid;
-    grid-template-rows: 2;
+    grid-template-rows: repeat(2);
     justify-content: center;
 }
 
@@ -33,5 +32,19 @@
     display: grid;
     box-sizing: content-box;
     justify-self: center;
-    grid-template-rows: 2;
+    grid-row-start: 1;
+}
+
+.autotradeActions {
+    grid-row-start: 2;
+    border-color: rgb(255, 255, 255);
+    border: 2px solid rgb(0, 255, 17);
+    background: #5d675c;
+}
+
+#buyAction{
+    background: green;
+}
+#sellAction{
+    background: rgb(128, 0, 0);
 }
