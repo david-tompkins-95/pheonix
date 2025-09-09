@@ -57,8 +57,8 @@ const AutoTradeForm = ((props: any) => {
                                 className={styles.autotradeTypes}
                                 onChange={(e) => setOrderType(e.target.value)}>
                                 <option value="null">Choose Type</option>
-                                <option value="Call">Call</option>
-                                <option value="Put">Put</option>
+                                <option id={styles.callType} value="Call">Call</option>
+                                <option id={styles.putType} value="Put">Put</option>
                             </select>
                         </div>
                         <div className="w-full">
