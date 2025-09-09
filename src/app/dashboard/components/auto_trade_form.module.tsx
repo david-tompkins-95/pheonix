@@ -61,12 +61,11 @@ const AutoTradeForm = ((props: any) => {
                                 <option id={styles.putType} value="Put">Put</option>
                             </select>
                         </div>
-                        <div className="w-full">
-                            <label className={styles.field_labels}>Strike
-                                Price</label>
+                        <div className={styles.autotradeStrikeContainer}>
+                            <text className={styles.autotradeStrikeLabel}>Strike Price</text>
                             <input type="text" id="strike_price"
+                                className={styles.autotradeStrikes}
                                 onChange={(e) => setStrikePrice(e.target.value)}
-                                className={styles.field__stockName}
                                 placeholder="$" required />
                         </div>
                         <div className="w-full">
