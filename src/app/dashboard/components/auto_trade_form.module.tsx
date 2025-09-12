@@ -68,18 +68,18 @@ const AutoTradeForm = ((props: any) => {
                                 onChange={(e) => setStrikePrice(e.target.value)}
                                 placeholder="$" required />
                         </div>
-                        <div className="w-full">
-                            <label className={styles.field_labels}>Contract Length</label>
+                        <div className={styles.autotradeExpiryContainer}>
+                            <text className={styles.autotradeExpiryLabel}>Contract Length</text>
                             <input type="text" id="contract_date"
+                                className={styles.autotradeExpiry}
                                 onChange={(e) => setContractDate(e.target.value)}
-                                className={styles.field__stockName}
-                                placeholder="Contract Length" required />
+                                placeholder="Contract Length (# of Days)" required />
                         </div>
                         <div className="w-full">
-                            <label className={styles.field_labels}>Ticker</label>
+                            <label className={styles.autotradeExpiryLabel}>Ticker</label>
                             <input type="text" id="ticker"
                                 onChange={(e) => setTicker(e.target.value)}
-                                className={styles.field__stockName}
+                                className={styles.autotradeExpiry}
                                 placeholder="Ticker Name" required />
                         </div>
                         <div className="w-full">
