@@ -75,19 +75,19 @@ const AutoTradeForm = ((props: any) => {
                                 onChange={(e) => setContractDate(e.target.value)}
                                 placeholder="Contract Length (# of Days)" required />
                         </div>
-                        <div className="w-full">
-                            <label className={styles.autotradeExpiryLabel}>Ticker</label>
+                        <div className={styles.autotradeTickerContainer}>
+                            <text className={styles.autotradetickerLabel}>Ticker</text>
                             <input type="text" id="ticker"
+                                className={styles.autotradeTicker}
                                 onChange={(e) => setTicker(e.target.value)}
-                                className={styles.autotradeExpiry}
                                 placeholder="Ticker Name" required />
                         </div>
-                        <div className="w-full">
-                            <label className={styles.field_labels}>Order
-                                Quantity</label>
+                        <div className={styles.autotradeQuantityContainer}>
+                            <text className={styles.autotradeQuantityLabel}>Order
+                                Quantity</text>
                             <input type="text" id="order_quantity"
+                                className={styles.autotradeQuantity}
                                 onChange={(e) => setOrderQuantity(e.target.value)}
-                                className={styles.field__stockName}
                                 placeholder="Order Quantity" required />
                         </div>
                     </div>
