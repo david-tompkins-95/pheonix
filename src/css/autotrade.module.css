@@ -196,3 +196,13 @@
     display: grid;
     padding: 20px;
 }
+
+.autotradeSubmitButton {
+    grid-column: span 6;
+    justify-self: center;
+    height: auto;
+    width: 150px;
+    border-color: rgb(255, 255, 255);
+    border: 2px solid rgb(0, 255, 17);
+    background: #5d645c;
+}

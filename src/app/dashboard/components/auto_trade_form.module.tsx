@@ -93,7 +93,7 @@ const AutoTradeForm = ((props: any) => {
                     </div>
                     <div className={styles.autotradeSubmitContainer}>
                         <button type="submit"
-                            className={styles.button__submit}>Submit
+                            className={styles.autotradeSubmitButton}>Submit
                         </button>
                     </div>
                 </form>
