@@ -76,7 +76,7 @@ const AutoTradeForm = ((props: any) => {
                                 placeholder="Contract Length (# of Days)" required />
                         </div>
                         <div className={styles.autotradeTickerContainer}>
-                            <text className={styles.autotradetickerLabel}>Ticker</text>
+                            <text className={styles.autotradeTickerLabel}>Ticker</text>
                             <input type="text" id="ticker"
                                 className={styles.autotradeTicker}
                                 onChange={(e) => setTicker(e.target.value)}
@@ -91,9 +91,7 @@ const AutoTradeForm = ((props: any) => {
                                 placeholder="Order Quantity" required />
                         </div>
                     </div>
-                    <div className="w-full">
-                        <label className={styles.field_labels}>- - - - - - -
-                            - </label>
+                    <div className={styles.autotradeSubmitContainer}>
                         <button type="submit"
                             className={styles.button__submit}>Submit
                         </button>
