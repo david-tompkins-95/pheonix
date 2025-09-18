@@ -102,6 +102,7 @@
     display: grid;
     box-sizing: content-box;
     justify-self: center;
+    
     grid-row-start: 1;
 }
 
